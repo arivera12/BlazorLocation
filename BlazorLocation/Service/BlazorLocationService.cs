@@ -31,17 +31,17 @@ namespace BlazorLocation
         {
             return JSRuntime.InvokeAsync<string>("eval", "window.location.host");
         }
-        public ValueTask<string> Host(string value)
+        public ValueTask Host(string value)
         {
-            return JSRuntime.InvokeAsync<string>("eval", $"window.location.host = '{value}'");
+            return JSRuntime.InvokeVoidAsync("eval", $"window.location.host = '{value}'");
         }
         public ValueTask<string> Hostname()
         {
             return JSRuntime.InvokeAsync<string>("eval", "window.location.hostname");
         }
-        public ValueTask<string> Hostname(string value)
+        public ValueTask Hostname(string value)
         {
-            return JSRuntime.InvokeAsync<string>("eval", $"window.location.hostname = '{value}'");
+            return JSRuntime.InvokeVoidAsync("eval", $"window.location.hostname = '{value}'");
         }
         public ValueTask<string> Href()
         {
@@ -67,25 +67,25 @@ namespace BlazorLocation
         {
             return JSRuntime.InvokeAsync<string>("eval", "window.location.pathname");
         }
-        public ValueTask<string> Pathname(string path)
+        public ValueTask Pathname(string path)
         {
-            return JSRuntime.InvokeAsync<string>("eval", $"window.location.pathname = '{path}'");
+            return JSRuntime.InvokeVoidAsync("eval", $"window.location.pathname = '{path}'");
         }
         public ValueTask<string> Port()
         {
             return JSRuntime.InvokeAsync<string>("eval", "window.location.port");
         }
-        public ValueTask<string> Port(string value)
+        public ValueTask Port(string value)
         {
-            return JSRuntime.InvokeAsync<string>("eval", $"window.location.port = '{value}'");
+            return JSRuntime.InvokeVoidAsync("eval", $"window.location.port = '{value}'");
         }
         public ValueTask<string> Protocol()
         {
             return JSRuntime.InvokeAsync<string>("eval", "window.location.protocol");
         }
-        public ValueTask<string> Protocol(string value)
+        public ValueTask Protocol(string value)
         {
-            return JSRuntime.InvokeAsync<string>("eval", $"window.location.protocol = '{value}'");
+            return JSRuntime.InvokeVoidAsync("eval", $"window.location.protocol = '{value}'");
         }
         public ValueTask Reload()
         {

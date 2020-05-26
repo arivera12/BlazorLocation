@@ -37,7 +37,7 @@ namespace BlazorLocation
         /// The host property of the Location interface is a USVString containing the host, that is the hostname, and then, if the port of the URL is nonempty, a ':', and the port of the URL.
         /// </summary>
         /// <returns></returns>
-        ValueTask<string> Host(string value);
+        ValueTask Host(string value);
         /// <summary>
         /// The hostname property of the Location interface is a USVString containing the domain of the URL.
         /// </summary>
@@ -47,7 +47,7 @@ namespace BlazorLocation
         /// The hostname property of the Location interface is a USVString containing the domain of the URL.
         /// </summary>
         /// <returns></returns>
-        ValueTask<string> Hostname(string value);
+        ValueTask Hostname(string value);
         /// <summary>
         /// The href property of the Location interface is a stringifier that returns a USVString containing the whole URL, and allows the href to be updated.
         /// </summary>
@@ -87,7 +87,7 @@ namespace BlazorLocation
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        ValueTask<string> Pathname(string path);
+        ValueTask Pathname(string path);
         /// <summary>
         /// The port property of the Location interface is a USVString containing the port number of the URL. If the URL does not contain an explicit port number, it will be set to ''.
         /// </summary>
@@ -98,7 +98,7 @@ namespace BlazorLocation
         /// </summary>
         /// <param name="value">The port value</param>
         /// <returns></returns>
-        ValueTask<string> Port(string value);
+        ValueTask Port(string value);
         /// <summary>
         /// The protocol property of the Location interface is a USVString representing the protocol scheme of the URL, including the final ':'.
         /// </summary>
@@ -109,7 +109,7 @@ namespace BlazorLocation
         /// </summary>
         /// <param name="value">The protocol value</param>
         /// <returns></returns>
-        ValueTask<string> Protocol(string value);
+        ValueTask Protocol(string value);
         /// <summary>
         /// The search property of the Location interface is a search string, also called a query string; that is, a USVString containing a '?' followed by the parameters of the URL.
         /// </summary>
@@ -152,7 +152,7 @@ namespace BlazorLocation
         /// <returns></returns>
         ValueTask Replace(string url);
         /// <summary>
-        ///This stringifier method of the Location interface returns a USVString containing the whole URL. It is a read-only version of Location.href.
+        /// This stringifier method of the Location interface returns a USVString containing the whole URL. It is a read-only version of Location.href.
         /// </summary>
         /// <returns></returns>
         ValueTask<string> ToString();
