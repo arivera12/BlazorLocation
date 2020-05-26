@@ -1,0 +1,103 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime
+@inject HttpClient Http
+@inject IBlazorLocationService IBlazorService
+@using Newtonsoft.Json;
+<h1>Blazor Location API Demo Functions</h1>
+<button @onclick=@(async() => await BlazorLocationService.Assign(Url))>Assign</button>
+<button @onclick=@(async() => await BlazorLocationService.Replace(Url))>Replace</button>
+<button @onclick=@(async() => await BlazorLocationService.Reload())>Reload</button>
+<button @onclick=BlazorLocationToString>ToString</button>
+<br />
+<br />
+<p>ToString return: @functionsResults</p>
+
+<h1>Blazor Location API Demo Properties</h1>
+
+<button @onclick=BlazorLocationAnchestorOrigins>Ancestor Origins</button>
+<button @onclick=@(async() => await BlazorLocationService.Hash(randomHash))>Set Dummy Hash</button>
+<button @onclick=BlazorLocationHash>Hash</button>
+<button @onclick=BlazorLocationHost>Host</button>
+<button @onclick=BlazorLocationHostname>Hostname</button>
+<button @onclick=BlazorLocationHref>Href</button>
+<button @onclick=@(async() => await BlazorLocationService.Href(Href))>Set Href</button>
+<button @onclick=BlazorLocationOrigin>Origin</button>
+<button @onclick=@(async() => await BlazorLocationService.Password(randomPassword))>Set Dummy Password</button>
+<button @onclick=BlazorLocationPassword>Password</button>
+<button @onclick=BlazorLocationPathname>Pathname</button>
+<button @onclick=BlazorLocationPort>Port</button>
+<button @onclick=BlazorLocationProtocol>Protocol</button>
+<button @onclick=@(async() => await BlazorLocationService.Search(Search))>Set Random Search</button>
+<button @onclick=BlazorLocationSearch>Search</button>
+<button @onclick=@(async() => await BlazorLocationService.Username(randomUsername))>Set Dummy Username</button>
+<button @onclick=BlazorLocationUsername>Username</button>
+<br />
+<br />
+<p>Button Action Result: @propertyResults</p>
+<p>Anchestor Origin return: @JsonConvert.SerializeObject(ancestorOriginsResult)</p>
+
+    @functions{
+        [Inject] public IBlazorLocationService BlazorLocationService { get; set; }
+        string Url = "https://www.google.com/";
+        string functionsResults;
+        string propertyResults;
+        string randomPassword = "DummyPassword";
+        string randomUsername = "DummyUsername";
+        string randomHash = "DummyHash";
+        string Search = "Counter";
+        string Href = "Counter";
+        IDomStringList ancestorOriginsResult;
+
+        private async Task BlazorLocationToString()
+        {
+            functionsResults = await BlazorLocationService.ToString();
+        }
+        private async Task BlazorLocationHash()
+        {
+            propertyResults = await BlazorLocationService.Hash();
+        }
+        private async Task BlazorLocationHost()
+        {
+            propertyResults = await BlazorLocationService.Host();
+        }
+        private async Task BlazorLocationAnchestorOrigins()
+        {
+           ancestorOriginsResult = await BlazorLocationService.AncestorOrigins();
+        }
+        private async Task BlazorLocationHostname()
+        {
+            propertyResults = await BlazorLocationService.Hostname();
+        }
+        private async Task BlazorLocationHref()
+        {
+            propertyResults = await BlazorLocationService.Href();
+        }
+        private async Task BlazorLocationOrigin()
+        {
+            propertyResults = await BlazorLocationService.Origin();
+        }
+        private async Task BlazorLocationPassword()
+        {
+            propertyResults = await BlazorLocationService.Password();
+        }
+        private async Task BlazorLocationPathname()
+        {
+            propertyResults = await BlazorLocationService.Pathname();
+        }
+        private async Task BlazorLocationPort()
+        {
+            propertyResults = await BlazorLocationService.Port();
+        }
+        private async Task BlazorLocationProtocol()
+        {
+            propertyResults = await BlazorLocationService.Protocol();
+        }
+        private async Task BlazorLocationSearch()
+        {
+            propertyResults = await BlazorLocationService.Search();
+        }
+        private async Task BlazorLocationUsername()
+        {
+            propertyResults = await BlazorLocationService.Username();
+        }
+    }
