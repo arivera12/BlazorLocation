@@ -29,7 +29,7 @@ This library has no javascript library reference dependency.
 
 ## Usage
 
-`[Inject] IBlazorLocation BlazorLocation { get; set; }`
+`[Inject] IBlazorLocationService BlazorLocation { get; set; }`
 
 ### BlazorHistory Methods
 
